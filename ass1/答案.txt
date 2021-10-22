@@ -1,0 +1,175 @@
+31/8 finish Q1-Q3
+1/9  finish Q4 + check answers
+
+Q1
+(a)
+Yes, they are still relevant today.
+Data cleaning includes discrepancy detection and data transformation.
+For single source problems, we can use data scrubbing to check correctness of data, like spelling. For multi-source problems, we can data auditing tool to find outlier. 
+Data migration tool is wildly use in data transformation. For example, ETL has three steps, extraction, transformation and loading by GUI for users to data cleaning.
+
+(b)
+Data Cleaning:
+(1)Handle Missing Data
+If there are some diagnosed patients are unwilling to provide some information about personal privacy. For example, real name and address. I will consider use a global variable to fill in missing values to make dataset has integrity. 
+(2)Outlier Analysis
+If there are some diagnosed patients provide some fake information or they are existing some special cases. For example, senior people who were severely ill and then dead due to COVID-19. I will use outlier analysis to evaluate which is outlier.
+Data Integration:
+(1)Data redundancy
+Because dataset consist of seven states, it is possible that there are existing data redundancy, which means two attributes have a relationship. I will use Chi-square test for nominal attributes and use correlation coefficient for numerical attributes to evaluate correlation between two attributes.
+
+
+
+Q2
+L = [74, 14, 20, 32, 42, 55, 91, 56, 84, 42, 13, 7, 67, 73, 54, 7]
+1.
+mean of L is 45.69
+standard deviation of L is 27.07
+2.
+median of L is 48
+median absolute deviation is 25.50
+3.
+mod of L are 7,42
+
+
+Q3
+L = [7, 7, 13, 14, 20, 32, 42, 42, 54, 55, 56, 67, 73, 74, 84, 91]
+
+1.
+Partition into equal depth bins:
+Bin 1 = [7, 7, 13, 14, 20, 32, 42, 42]
+Bin 2 = [54, 55, 56, 67, 73, 74, 84, 91]
+
+Smoothingg by bin median:
+Bin 1 = [17, 17, 17, 17, 17, 17, 17, 17]
+Bin 2 = [70, 70, 70, 70, 70, 70, 70, 70]
+
+2.
+Width of intervals = (91-7)/3 = 28
+Partition into equal width bins:
+Bin 1 = [7, 7, 13, 14, 20, 32]  [-,35)
+Bin 2 = [42, 42, 54, 55, 56]    [35,63)
+Bin 3 = [67, 73, 74, 84, 91]    [63,+)
+
+Smoothingg by bin mean:
+Bin 1 = [15.50, 15.50, 15.50, 15.50, 15.50, 15.50]  
+Bin 2 = [49.80, 49.80, 49.80, 49.80, 49.80]    
+Bin 3 = [77.80, 77.80, 77.80, 77.80, 77.80] 
+
+3.
+Width of intervals = (91-7)/4 = 21
+Partition into equal width bins:
+Bin 1 = [7, 7, 13, 14, 20]     
+Bin 2 = [32, 42, 42]           
+Bin 3 = [54, 55, 56, 67]       
+Bin 4 = [73, 74, 84, 91]      
+
+Smoothingg by bin boundaries:
+Bin 1 = [7, 7, 7, 20, 20]     
+Bin 2 = [32, 42, 42]         
+Bin 3 = [54, 54, 54, 67]       
+Bin 4 = [73, 73, 91, 91]     
+
+4.
+Partition into equal depth bins:
+Bin 1 = [7, 7, 13, 14]         
+Bin 2 = [20, 32, 42, 42]
+Bin 3 = [54, 55, 56, 67]
+Bin 4 = [73, 74, 84, 91]
+
+Smoothingg by bin boundaries:
+Bin 1 = [7, 7, 14, 14]         
+Bin 2 = [20, 42, 42, 42]
+Bin 3 = [54, 54, 54, 67]
+Bin 4 = [73, 73, 91, 91]
+
+
+Q4
+
+Your student data set for the data wrangling 2021 assignments
+has been generated and written into file:
+
+  data_wrangling_medical_2021_u6773547.csv
+
+Your ANU ID check code is:           b26701c6
+Your student data set check code is: a7805c2b3d05
+
+  *** Check this pair of numbers is in the list provided on Wattle
+  *** If not contact the course convenor.
+
+####  b26701c6 / a7805c2b3d05
+
+
+1.
+Missing Value Summary
+
+     postcode email phone      
+6602        1     1     1     0
+4450        1     1     0     1
+2957        1     0     1     1
+1994        1     0     0     2
+1657        0     1     1     1
+1094        0     1     0     2
+750         0     0     1     2
+496         0     0     0     3
+         3997  6197  8034 18228
+
+2.
+(a) 
+Pearson Correlation Coefficient of BMI and age at consultation is 0.2533.
+It evaluates the linear correlation between two data sets.
+(b)
+Pearson Correlation Coefficient of BMI and height is 0.1281.
+It evaluates the linear correlation between two data sets.
+(c)
+Defined married and married de facto are married, divorced, not married, widowed and separaed are single.
+Spearman's rank correlation of state and marital status is 0.0176.
+Because it does not care whether the two data sets are linear correlation, but monotonical correlation.
+
+3.
+(a) 
+Completeness for postcode: (20000 - 3997)/20000 * 100 = 80.02% (missing: 3997)
+Completeness for phone: (20000 - 8034)/20000 * 100 = 59.83% (missing: 8034)
+
+(b)
+Validity for weight: (20000 - 2007)/20000 * 100 = 89.97% (0< weight < 200)
+
+(c)
+Uniqueness for last name: 14000/20000 * 100 = 70% (The number of rec_id/ssn is 14000)
+
+(d)
+Because (2021 - age at consultation) >= brithday year
+Consistency between age at consultation and birth date: (20000 - 3097)/20000 * 100 = 84.52%
+
+4.
+(a) 
+The cholesterol level does not follow Benford’s law.
+The digit 1 appears 65 % of the time instead of 30 % of the time follows Benford’s law.
+Because the cholesterol level of normal people is bewteen 100 to 200.
+
+(b) 
+The blood pressure does not follow Benford’s law.
+The digit 1 appears 0 % of the time and the number 7 appears almost about 80 % of the time.
+Because the blood pressure of normal people is around 70.
+
+(c) 
+The medicare number does not follow Benford’s law.
+The digit 1 appears 11 % of the time instead of 30 % of the time follows Benford’s law.
+Becasue the first digit of medicare card is random.
+
+5.
+We generally think weight, blood pressure and cholesterol level are positive correlation. But after caculate pearson correlation coefficient between two of them. 
+Pearson Correlation Coefficient of weight and blood pressure is 0.0161, weight and cholesterol level is 0.0107, blood pressure and cholesterol level is -0.0042. 
+All of their abstract are less 0.1.They are not correlation to each other.
+ 
+
+
+
+
+
+
+
+
+
+
+
